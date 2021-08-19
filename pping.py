@@ -1,13 +1,14 @@
+"""
+A simple network moniter that just sends a request to a
+website.
+"""
+
+
+
+
+
 import requests
 import time
-
-"""
-ip="https://google.com"
-
-output=requests.get(ip)
-
-print(output)
-"""
 list_of=["https://google.com","https://wikipedia.org"]
 
 def check_net(url):
@@ -26,7 +27,7 @@ def log():
 def main():
     while True:
         log()
-        print("i\n")
+        print("i")
         time.sleep(30)
 
 if __name__=="__main__":
