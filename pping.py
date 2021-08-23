@@ -9,8 +9,7 @@ website.
 
 import requests
 import time
-list_of=["https://google.com","https://wikipedia.org"]
-
+list_of=["https://google.com"]
 def check_net(url):
     try:
         resp=requests.get(url)
