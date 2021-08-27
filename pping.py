@@ -1,7 +1,9 @@
 """
 A simple network moniter that just sends a request to a
-website.
+website. This script dosnt use the ICMP ping protocol for verifing 
+whether the connection is up or not, instead it uses a simple 
 """
+
 import requests
 import time
 list_of=["https://google.com"]                        #More websites can be added     
@@ -9,7 +11,7 @@ def check_net(url):                                   #this fuction sends a requ
     try:                                              #given website if the internet is 
         resp=requests.get(url)                        #down the error will notify it.
         resp.close()
-    except:
+    except requests.exceptions.ConnectionError:
         return True
 
 def log():                                            #function that logs the result to
