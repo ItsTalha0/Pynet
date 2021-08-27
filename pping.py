@@ -2,26 +2,21 @@
 A simple network moniter that just sends a request to a
 website.
 """
-
-
-
-
-
 import requests
 import time
-list_of=["https://google.com"]
-def check_net(url):
-    try:
-        resp=requests.get(url)
+list_of=["https://google.com"]                        #More websites can be added     
+def check_net(url):                                   #this fuction sends a requsts to
+    try:                                              #given website if the internet is 
+        resp=requests.get(url)                        #down the error will notify it.
         resp.close()
     except:
         return True
 
-def log():
-	with open("log.csv","a") as f:
+def log():                                            #function that logs the result to
+	with open("log.csv","a") as f:                    #a file named log.csv
 		for i in list_of:
 			if check_net(i)==True:
-				f.write("{t}:{we} down\n".format(t=i,we=time.ctime()))
+				f.write("{t},{we},\n".format(t=i,we=time.ctime()))
 
 def main():
     while True:
