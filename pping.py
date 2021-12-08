@@ -6,16 +6,16 @@ whether the connection is up or not, instead it uses a simple
 
 import requests
 import time
-list_of=["https://google.com"]                        #More websites can be added     
-def check_net(url):                                   #this fuction sends a requsts to
-    try:                                              #given website if the internet is 
-        resp=requests.get(url)                        #down the error will notify it.
+list_of=["https://google.com"]                        							#More websites can be added     
+def check_net(url):                                   							#this fuction sends a requsts to
+    try:                                             						  	#given website if the internet is 
+        resp=requests.get(url)                        							#down the error will notify it.
         resp.close()
     except requests.exceptions.ConnectionError:
         return True
 
-def log():                                            #function that logs the result to
-	with open("log.csv","a") as f:                    #a file named log.csv
+def log():                                            							#function that logs the result to
+	with open("log.csv","a") as f:                							#a file named log.csv
 		for i in list_of:
 			if check_net(i)==True:
 				f.write("{t},{we},\n".format(t=i,we=time.ctime()))
